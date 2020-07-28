@@ -16,7 +16,6 @@ public class Registration {
 		
 //		Set properties
 		DriverFactory factory = new DriverFactory();
-		
 		WebDriver driver = factory.factory(BrowserType.FIREFOX);
 		
 //		Open application

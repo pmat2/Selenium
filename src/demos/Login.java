@@ -11,7 +11,6 @@ public class Login {
 		
 //		Define web driver
 		DriverFactory factory = new DriverFactory();
-		
 		WebDriver driver = factory.factory(BrowserType.FIREFOX);
 		
 //		Open browser and navigate to the application
