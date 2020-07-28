@@ -2,15 +2,13 @@ package demos;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 import utilities.BrowserType;
 import utilities.DriverFactory;
 
 public class Login {
 
 	public static void main(String[] args) throws InterruptedException {
+		
 //		Define web driver
 		DriverFactory factory = new DriverFactory();
 		
@@ -29,8 +27,7 @@ public class Login {
 		driver.findElement(By.id("SubmitLogin")).click();
 		
 //		Close the browser
-//		Thread.sleep(3000);
-//		driver.close();
+		Thread.sleep(3000);
+		driver.close();
 	}
-
 }

@@ -3,39 +3,42 @@ package demos;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import utilities.BrowserType;
+import utilities.DriverFactory;
 
 public class Registration {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-//		set properties
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\pawel\\Desktop\\selenium\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+//		Set properties
+		DriverFactory factory = new DriverFactory();
 		
-//		open url
+		WebDriver driver = factory.factory(BrowserType.FIREFOX);
+		
+//		Open application
 		driver.get("http://automationpractice.com");
 		
-//		move to registration page
+//		Move to registration page
 		driver.findElement(By.cssSelector("a[class='login'")).click();
 		
-//		wait for ajax response
+//		Wait for ajax response
 		WebDriverWait wait = new WebDriverWait (driver, 15);
 		WebElement emailCreate = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_create")));
 		
-//		put required mail first
+//		Put entry level variables
 		emailCreate.sendKeys("a.dupa@dupa.pl");
 
-//		move to next registration page
+//		Move to next registration page
 		driver.findElement(By.id("SubmitCreate")).click();
 		
-//		wait for ajax response
+//		Wait for ajax response
 		WebElement gender = wait.until(ExpectedConditions.elementToBeClickable(By.id("id_gender1")));
 		
-//		all form variables 
+//		All form variables 
 		gender.click();
 		
 		driver.findElement(By.id("customer_firstname")).sendKeys("andrzej");
@@ -76,10 +79,9 @@ public class Registration {
 		
 		driver.findElement(By.id("submitAccount")).click();
 		
-		
-//		pn: 
-//		Thread.sleep(3000);
-//		driver.close();
+//		Close browser
+		Thread.sleep(3000);
+		driver.close();
 	}
 
 }
