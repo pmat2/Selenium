@@ -2,6 +2,10 @@ package demos;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import utilities.BrowserType;
 import utilities.DriverFactory;
 
@@ -13,17 +17,24 @@ public class Login {
 		DriverFactory factory = new DriverFactory();
 		WebDriver driver = factory.factory(BrowserType.FIREFOX);
 		
-//		Open browser and navigate to the application
-		driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+//		Open application
+		driver.get("http://automationpractice.com");
 		
-//		Enter login
-		driver.findElement(By.id("email")).sendKeys("a.dupa@dupa.pl");
+//		Move to login page
+		driver.findElement(By.cssSelector("a[class='login'")).click();
 		
-//		Enter password
-		driver.findElement(By.id("passwd")).sendKeys("andrzejdupa");
+//		Web elements
+		WebElement email = driver.findElement(By.id("email"));
+		WebElement password = driver.findElement(By.id("passwd"));
+		WebElement submitLogin = driver.findElement(By.id("SubmitLogin"));
 		
-//		Click login
-		driver.findElement(By.id("SubmitLogin")).click();
+//		Wait for ajax response
+		WebDriverWait wait = new WebDriverWait (driver, 15);
+		WebElement emailCreate = wait.until(ExpectedConditions.elementToBeClickable(email));
+		
+		email.sendKeys("a.dupa@dupa.pl");
+		password.sendKeys("andrzejdupa");
+		submitLogin.click();
 		
 //		Close the browser
 		Thread.sleep(3000);

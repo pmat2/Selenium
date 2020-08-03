@@ -29,7 +29,7 @@ public class Registration {
 		WebElement emailCreate = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_create")));
 		
 //		Put entry level variables
-		emailCreate.sendKeys("a.dupa@dupa.pl");
+		emailCreate.sendKeys("ad.dupa@dupa.pl");
 
 //		Move to next registration page
 		driver.findElement(By.id("SubmitCreate")).click();
@@ -76,7 +76,7 @@ public class Registration {
 		
 		driver.findElement(By.id("phone_mobile")).sendKeys("0123-456-789");
 		
-		driver.findElement(By.id("submitAccount")).click();
+//		driver.findElement(By.id("submitAccount")).click();
 		
 //		Close browser
 		Thread.sleep(3000);
