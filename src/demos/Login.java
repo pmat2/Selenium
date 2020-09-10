@@ -28,12 +28,17 @@ public class Login {
 		WebElement password = driver.findElement(By.id("passwd"));
 		WebElement submitLogin = driver.findElement(By.id("SubmitLogin"));
 		
+//		Form variables
+		String emailAddress = "j.kowalski@kowalski.pl";
+		String passwordInput = "jkjk0val007";
+		
 //		Wait for ajax response
 		WebDriverWait wait = new WebDriverWait (driver, 15);
+
+//		Fill out form
 		WebElement emailCreate = wait.until(ExpectedConditions.elementToBeClickable(email));
-		
-		email.sendKeys("a.dupa@dupa.pl");
-		password.sendKeys("andrzejdupa");
+		email.sendKeys(emailAddress);
+		password.sendKeys(passwordInput);
 		submitLogin.click();
 		
 //		Close the browser
