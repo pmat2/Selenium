@@ -13,9 +13,13 @@ public class Login {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-//		Define web driver
+//		Set properties
 		DriverFactory factory = new DriverFactory();
 		WebDriver driver = factory.factory(BrowserType.FIREFOX);
+		
+//		Form variables
+		String emailAddress = "j.kowalski@kowalski.pl";
+		String passwordInput = "jkjk0val007";
 		
 //		Open application
 		driver.get("http://automationpractice.com");
@@ -27,10 +31,6 @@ public class Login {
 		WebElement email = driver.findElement(By.id("email"));
 		WebElement password = driver.findElement(By.id("passwd"));
 		WebElement submitLogin = driver.findElement(By.id("SubmitLogin"));
-		
-//		Form variables
-		String emailAddress = "j.kowalski@kowalski.pl";
-		String passwordInput = "jkjk0val007";
 		
 //		Wait for ajax response
 		WebDriverWait wait = new WebDriverWait (driver, 15);
